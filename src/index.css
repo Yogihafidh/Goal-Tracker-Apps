@@ -19,15 +19,14 @@ html {
 
 body {
   color: #495057;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 2rem;
 }
 
 .app {
+  position: relative;
   height: 100vw;
   min-height: 66vw;
+  max-width: 100rem;
 }
 
 header {
@@ -57,7 +56,7 @@ h1 {
 
 .button {
   background-color: var(--color-medium);
-  color: white;
+  color: var(--color-lightest);
   padding: 0.8rem 1.2rem;
   border: none;
   border-radius: 8px;
@@ -66,9 +65,10 @@ h1 {
   transition: 0.3s;
 }
 
-.buttonNav {
+/* .buttonNav {
   padding: 1.6rem 2.4rem;
   height: 100%;
+  background-color: var(--color-medium);
 
   cursor: pointer;
   border: none;
@@ -78,14 +78,19 @@ h1 {
   display: flex;
   align-items: center;
   gap: 0.6rem;
+} */
+.button-nav {
+  display: flex;
+  gap: 1.2rem;
+  padding: 1.2rem 2.4rem;
 }
 
-.buttonNav svg {
-  height: 3.2rem;
-  color: var(--color-dark);
+.button svg {
+  height: 2.4rem;
+  color: var(--color-lightest);
 }
 
-.buttonNav p {
+.button p {
   font-size: 1.8rem;
 }
 
@@ -95,14 +100,17 @@ h1 {
 
 .closeButton {
   position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
+  top: 0;
+  right: 0;
+  transform: translate(100%, -100%);
 
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 10px;
+  background-color: var(--color-dark);
   border: none;
-  background: none;
-  color: black;
+  color: var(--color-lightest);
   font-size: 2.4rem;
-  border: none;
   font-weight: bold;
   cursor: pointer;
 }
@@ -139,7 +147,12 @@ h1 {
 
 .goal-image {
   width: 100%;
+  height: 20rem;
   object-fit: cover;
+}
+
+.goal-image img {
+  display: block;
 }
 
 .goal-content {
@@ -172,6 +185,7 @@ form {
   grid-template-columns: 1fr 1.5fr;
   padding: 4.4rem;
   width: 70rem;
+
   position: absolute;
   top: 50%;
   left: 50%;
@@ -179,40 +193,84 @@ form {
 }
 
 .task {
+  z-index: 99999;
   font-size: 1.6rem;
   text-align: center;
-  z-index: 99999;
-  overflow: hidden;
 
   background-color: var(--color-lightest);
   border-radius: 8px;
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
 
   width: 100rem;
+
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -30%);
 }
 
 .task-content {
+  position: relative;
   padding: 4.4rem;
+  text-align: center;
 }
 
 .task img {
   width: 100%;
   height: 20rem;
   object-fit: cover;
-}
-.task h2 {
-  font-size: 2.2rem;
-  text-transform: uppercase;
-  letter-spacing: -0.5px;
-  margin-bottom: 1.6rem;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
-.task ul {
+.task-content h2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-70%, -70%);
+  padding: 1.2rem 2.4rem;
+  font-weight: 700;
+  border-radius: 8px;
+  width: 40%;
+  background-color: var(--color-medium);
+  color: var(--color-lightest);
+  font-size: 3.2rem;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.task-content .description {
+  font-size: 2.2rem;
+  margin-bottom: 1.8rem;
+}
+
+.task-content p {
+  font-size: 1.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.task-content ul {
   list-style: none;
+  width: 50%;
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  transform: translate(60%, 0);
+}
+
+.task-content li {
+  font-size: 1.4rem;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.task-content input[type="checkbox"]:before {
+  background-color: var(--color-lightest);
+  border: 10px solid var(--color-dark);
+  border-radius: 4px;
 }
 
 label {
@@ -265,7 +323,34 @@ form .button {
   display: none;
 }
 
-.task {
+.line-throught {
+  text-decoration: line-through;
+}
+
+.login {
+  padding: 3.2rem;
+  background-color: var(--color-lightest);
+  color: var(--color-dark);
+  border-radius: 11px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.login p {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.login input {
+  margin-bottom: 1.8rem;
+}
+/* .task {
   font-size: 1.6rem;
   align-items: center;
   gap: 1.2rem;
@@ -274,4 +359,4 @@ form .button {
   background-color: var(--color-lightest);
   border-radius: 8px;
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
-}
+} */
